@@ -85,8 +85,9 @@ function getDistanceBetweenPoints(x1, y1, x2, y2) {
  *   x + 8 = 0       => -8
  *   5*x = 0         => 0
  */
-function getLinearEquationRoot(/* a, b */) {
-  throw new Error('Not implemented');
+function getLinearEquationRoot(a, b) {
+  // throw new Error('Not implemented');
+  return -b / a;
 }
 
 /**
@@ -155,8 +156,9 @@ function parseNumberFromString(value) {
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
-function getParallelepipedDiagonal(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getParallelepipedDiagonal(a, b, c) {
+  // throw new Error('Not implemented');
+  return Math.sqrt(a * a + b * b + c * c);
 }
 
 /**
@@ -176,8 +178,11 @@ function getParallelepipedDiagonal(/* a, b, c */) {
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
-function roundToPowerOfTen(/* num, pow */) {
-  throw new Error('Not implemented');
+function roundToPowerOfTen(num, pow) {
+  // throw new Error('Not implemented');
+  const rounder = 10 ** pow;
+  const rounded = Math.round(num / rounder);
+  return rounded * rounder;
 }
 
 /**
