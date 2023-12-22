@@ -186,7 +186,7 @@ function roundToPowerOfTen(num, pow) {
 }
 
 /**
- * Returns true is the number is prime; otherwise false.
+ * Returns true if the number is prime; otherwise false.
  * See: https://en.wikipedia.org/wiki/Primality_test
  *
  * @param {number} n
@@ -202,8 +202,14 @@ function roundToPowerOfTen(num, pow) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
+function isPrime(n) {
+  if (n === 0 || n === 1) return false;
+  if (n === 2) return true;
+
+  for (let i = 2; i < n; i += 1) {
+    if (n % i === 0) return false;
+  }
+  return true;
 }
 
 /**
@@ -236,8 +242,9 @@ function toNumber(/* value, def */) {
  *   -2 => -8
  *   0  => 0
  */
-function getCube(/* num */) {
-  throw new Error('Not implemented');
+function getCube(num) {
+  // throw new Error('Not implemented');
+  return num ** 3;
 }
 
 /**
@@ -253,8 +260,18 @@ function getCube(/* num */) {
  *   3  => 2
  *   10 => 55
  */
-function getFibonacciNumber(/* index */) {
-  throw new Error('Not implemented');
+function getFibonacciNumber(index) {
+  if (index === 0) return 0;
+  if (index === 1 || index === 2) return 1;
+  let first = 1;
+  let second = 1;
+  let number;
+  for (let i = 3; i <= index; i += 1) {
+    number = first + second;
+    first = second;
+    second = number;
+  }
+  return number;
 }
 
 /**
