@@ -50,7 +50,8 @@ function getCircleCircumference(r) {
  *  -3, 3  => 0
  */
 function getAverage(a, b) {
-  return (a + b) / 2;
+  if (a + b >= Number.MAX_VALUE) return Number.MAX_VALUE;
+  return a + b === 0 ? 0 : (a + b) / 2;
 }
 
 /**
@@ -69,9 +70,7 @@ function getAverage(a, b) {
  *   (-5,0) (10,-10) => 18.027756377319946
  */
 function getDistanceBetweenPoints(x1, y1, x2, y2) {
-  // d=√((x2 – x1)² + (y2 – y1)²)
-  // console.log(arguments);
-  return Math.sqrt((x2 - x1) * 2 + (y2 - y1) * 2);
+  return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
 }
 
 /**
@@ -124,8 +123,8 @@ function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
  *     5     => 5
  *     0     => 0
  */
-function getLastDigit(/* value */) {
-  throw new Error('Not implemented');
+function getLastDigit(val) {
+  return val % 10;
 }
 
 /**
@@ -139,8 +138,8 @@ function getLastDigit(/* value */) {
  *     '37'     => 37
  * '-525.5'     => -525.5
  */
-function parseNumberFromString(/* value */) {
-  throw new Error('Not implemented');
+function parseNumberFromString(value) {
+  return +value;
 }
 
 /**
